@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshan Tejomaya M - Personal Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+        
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        .polaroid {
+            background: white;
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+        
+        .polaroid:nth-child(even) {
+            transform: rotate(2deg);
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2387CEEB;stop-opacity:1" /><stop offset="100%" style="stop-color:%23E0F6FF;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="600" fill="url(%23sky)"/><path d="M0,400 Q300,350 600,380 T1200,360 L1200,600 L0,600 Z" fill="%2334D399"/><path d="M0,450 Q400,420 800,440 T1200,430 L1200,600 L0,600 Z" fill="%2310B981"/><circle cx="200" cy="150" r="50" fill="%23FCD34D" opacity="0.8"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #0D9488;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #0D9488;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #0D9488;
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background: #E5E7EB;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-stone-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+            <div class="flex justify-between items-center">
+                <div class="font-serif text-lg sm:text-xl font-semibold text-gray-800">Darshan Tejomaya M</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#travels" class="nav-link">Travels</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="#journal" class="nav-link">Journal</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button class="md:hidden p-2 -mr-2" onclick="toggleMobileMenu()">
+                    <svg id="menuIcon" class="w-6 h-6 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="closeIcon" class="w-6 h-6 hidden transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200">
+                <div class="pt-4 space-y-1">
+                    <a href="#home" class="block py-3 px-2 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors">Home</a>
+                    <a href="#about" class="block py-3 px-2 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors">About</a>
+                    <a href="#travels" class="block py-3 px-2 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors">Travels</a>
+                    <a href="#gallery" class="block py-3 px-2 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors">Gallery</a>
+                    <a href="#journal" class="block py-3 px-2 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors">Journal</a>
+                    <a href="#contact" class="block py-3 px-2 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white pt-16">
+        <div class="text-center max-w-4xl mx-auto px-4 sm:px-6 fade-in">
+            <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold mb-4 sm:mb-6 leading-tight">Hi, I'm Darshan Tejomaya M</h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 font-light leading-relaxed max-w-3xl mx-auto">
+                Welcome to my personal corner of the web — a blend of my journey, my travels, and my memories.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-2xl mx-auto">
+                <button onclick="scrollToSection('travels')" class="bg-teal-600 hover:bg-teal-700 px-6 sm:px-8 py-3 rounded-full font-medium transition-colors text-sm sm:text-base">
+                    Explore My Travels
+                </button>
+                <button onclick="scrollToSection('gallery')" class="bg-white/20 hover:bg-white/30 px-6 sm:px-8 py-3 rounded-full font-medium transition-colors backdrop-blur-sm text-sm sm:text-base">
+                    View My Gallery
+                </button>
+                <button onclick="scrollToSection('about')" class="border border-white/50 hover:bg-white/10 px-6 sm:px-8 py-3 rounded-full font-medium transition-colors text-sm sm:text-base">
+                    About Me
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="fade-in order-2 md:order-1">
+                    <div class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mx-auto bg-gradient-to-br from-teal-100 to-amber-100 rounded-full flex items-center justify-center">
+                        <div class="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-gradient-to-br from-teal-200 to-amber-200 rounded-full flex items-center justify-center">
+                            <svg class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in order-1 md:order-2">
+                    <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 sm:mb-6 text-gray-800 text-center md:text-left">About Me</h2>
+                    <p class="text-base sm:text-lg leading-relaxed mb-6 text-gray-600 text-center md:text-left">
+                        I'm passionate about travelling, exploring new places, and documenting them through photos and stories. 
+                        This site is both my digital identity and my scrapbook — a place where memories come alive and 
+                        adventures find their voice.
+                    </p>
+                    
+                    <!-- Timeline -->
+                    <div class="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+                        <div class="timeline-item">
+                            <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Education & Growth</h4>
+                            <p class="text-gray-600 text-sm sm:text-base">Building foundations and discovering passions</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Professional Journey</h4>
+                            <p class="text-gray-600 text-sm sm:text-base">Applying skills and creating impact</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-semibold text-gray-800 text-sm sm:text-base">Travel Adventures</h4>
+                            <p class="text-gray-600 text-sm sm:text-base">Exploring India and collecting stories</p>
+                        </div>
+                    </div>
+
+                    <!-- Skills Cards -->
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                        <div class="bg-teal-50 p-3 sm:p-4 rounded-lg">
+                            <h4 class="font-semibold text-teal-800 mb-1 sm:mb-2 text-sm sm:text-base">📸 Photography</h4>
+                            <p class="text-xs sm:text-sm text-teal-600">Capturing moments</p>
+                        </div>
+                        <div class="bg-amber-50 p-3 sm:p-4 rounded-lg">
+                            <h4 class="font-semibold text-amber-800 mb-1 sm:mb-2 text-sm sm:text-base">✈️ Travel</h4>
+                            <p class="text-xs sm:text-sm text-amber-600">Exploring cultures</p>
+                        </div>
+                        <div class="bg-rose-50 p-3 sm:p-4 rounded-lg">
+                            <h4 class="font-semibold text-rose-800 mb-1 sm:mb-2 text-sm sm:text-base">📝 Storytelling</h4>
+                            <p class="text-xs sm:text-sm text-rose-600">Sharing experiences</p>
+                        </div>
+                        <div class="bg-blue-50 p-3 sm:p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-1 sm:mb-2 text-sm sm:text-base">🎨 Design</h4>
+                            <p class="text-xs sm:text-sm text-blue-600">Creating beauty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Scrapbook -->
+    <section id="travels" class="py-12 sm:py-16 lg:py-20 bg-stone-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 text-gray-800">Travel Scrapbook</h2>
+                <p class="text-base sm:text-lg text-gray-600">Every destination tells a story</p>
+            </div>
+
+            <div class="space-y-12 sm:space-y-16 lg:space-y-20">
+                <!-- Goa -->
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="polaroid mx-auto">
+                        <div class="w-72 h-52 sm:w-80 sm:h-60 bg-gradient-to-br from-blue-200 via-blue-300 to-yellow-200 rounded-sm flex items-center justify-center">
+                            <div class="text-center text-blue-800">
+                                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                <p class="font-semibold text-sm sm:text-base">Goa Beaches</p>
+                            </div>
+                        </div>
+                        <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">Sun, sand, and serenity</p>
+                    </div>
+                    <div class="fade-in text-center md:text-left">
+                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-800">Goa</h3>
+                        <p class="text-base sm:text-lg leading-relaxed text-gray-600">
+                            Sun, sand, and serenity – Goa taught me the value of slowing down. Between the golden beaches 
+                            and swaying palms, I discovered that sometimes the best adventures happen when you're not 
+                            rushing to the next destination.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hyderabad -->
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="fade-in md:order-2 text-center md:text-left">
+                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-800">Hyderabad</h3>
+                        <p class="text-base sm:text-lg leading-relaxed text-gray-600">
+                            A city of food, history, and stories waiting at every corner. From the majestic Charminar 
+                            to the aromatic biryani lanes, Hyderabad wrapped me in its rich tapestry of culture and 
+                            left me craving for more.
+                        </p>
+                    </div>
+                    <div class="polaroid mx-auto md:order-1">
+                        <div class="w-72 h-52 sm:w-80 sm:h-60 bg-gradient-to-br from-orange-200 via-red-200 to-pink-200 rounded-sm flex items-center justify-center">
+                            <div class="text-center text-red-800">
+                                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <p class="font-semibold text-sm sm:text-base">Charminar</p>
+                            </div>
+                        </div>
+                        <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">History & flavors</p>
+                    </div>
+                </div>
+
+                <!-- Mysore -->
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="polaroid mx-auto">
+                        <div class="w-72 h-52 sm:w-80 sm:h-60 bg-gradient-to-br from-purple-200 via-pink-200 to-yellow-200 rounded-sm flex items-center justify-center">
+                            <div class="text-center text-purple-800">
+                                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                </svg>
+                                <p class="font-semibold text-sm sm:text-base">Mysore Palace</p>
+                            </div>
+                        </div>
+                        <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">Royal grandeur</p>
+                    </div>
+                    <div class="fade-in text-center md:text-left">
+                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-800">Mysore</h3>
+                        <p class="text-base sm:text-lg leading-relaxed text-gray-600">
+                            The city of palaces whispered tales of royal grandeur at every turn. Walking through 
+                            the illuminated Mysore Palace felt like stepping into a fairy tale, where history 
+                            and architecture dance together in perfect harmony.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bangalore -->
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="fade-in md:order-2 text-center md:text-left">
+                        <h3 class="font-serif text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-800">Bangalore</h3>
+                        <p class="text-base sm:text-lg leading-relaxed text-gray-600">
+                            The garden city that never sleeps, where tradition meets innovation. From bustling 
+                            markets to serene parks, Bangalore showed me how a city can embrace both its roots 
+                            and its dreams with equal passion.
+                        </p>
+                    </div>
+                    <div class="polaroid mx-auto md:order-1">
+                        <div class="w-72 h-52 sm:w-80 sm:h-60 bg-gradient-to-br from-green-200 via-teal-200 to-blue-200 rounded-sm flex items-center justify-center">
+                            <div class="text-center text-green-800">
+                                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                <p class="font-semibold text-sm sm:text-base">Garden City</p>
+                            </div>
+                        </div>
+                        <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">Innovation & nature</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 text-gray-800">Visual Gallery</h2>
+                <p class="text-base sm:text-lg text-gray-600">Moments captured, memories preserved</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="gallery-item bg-gradient-to-br from-blue-100 to-blue-200 aspect-square rounded-lg flex items-center justify-center cursor-pointer" onclick="openLightbox('Sunset at Goa Beach', 'Golden hour magic by the Arabian Sea')">
+                    <div class="text-center text-blue-800">
+                        <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <p class="font-medium">Sunset at Goa</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item bg-gradient-to-br from-red-100 to-orange-200 aspect-square rounded-lg flex items-center justify-center cursor-pointer" onclick="openLightbox('Charminar Evening', 'The iconic monument glowing in twilight')">
+                    <div class="text-center text-red-800">
+                        <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        </svg>
+                        <p class="font-medium">Charminar</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item bg-gradient-to-br from-purple-100 to-pink-200 aspect-square rounded-lg flex items-center justify-center cursor-pointer" onclick="openLightbox('Mysore Palace Lights', 'Royal illumination in all its glory')">
+                    <div class="text-center text-purple-800">
+                        <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 11H7v9h2v-9zm4 0h-2v9h2v-9zm4 0h-2v9h2v-9zm2-7H4v2h1v11c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4zm-2 13H6V6h10v11z"/>
+                        </svg>
+                        <p class="font-medium">Palace Lights</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item bg-gradient-to-br from-green-100 to-teal-200 aspect-square rounded-lg flex items-center justify-center cursor-pointer" onclick="openLightbox('Bangalore Gardens', 'Lush greenery in the heart of the city')">
+                    <div class="text-center text-green-800">
+                        <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <p class="font-medium">City Gardens</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item bg-gradient-to-br from-yellow-100 to-amber-200 aspect-square rounded-lg flex items-center justify-center cursor-pointer" onclick="openLightbox('Street Food Adventures', 'Flavors that tell stories of the city')">
+                    <div class="text-center text-yellow-800">
+                        <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.20-1.10-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/>
+                        </svg>
+                        <p class="font-medium">Street Food</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item bg-gradient-to-br from-indigo-100 to-blue-200 aspect-square rounded-lg flex items-center justify-center cursor-pointer" onclick="openLightbox('Mountain Views', 'Breathtaking landscapes from hill stations')">
+                    <div class="text-center text-indigo-800">
+                        <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/>
+                        </svg>
+                        <p class="font-medium">Mountain Views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal -->
+    <section id="journal" class="py-12 sm:py-16 lg:py-20 bg-stone-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 text-gray-800">Journal</h2>
+                <p class="text-base sm:text-lg text-gray-600">Thoughts, reflections, and stories from the road</p>
+            </div>
+
+            <div class="space-y-6 sm:space-y-8">
+                <article class="bg-white rounded-lg shadow-sm overflow-hidden fade-in">
+                    <div class="p-4 sm:p-6 lg:p-8">
+                        <div class="flex items-center mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-teal-100 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                <span class="text-teal-600 font-semibold text-sm sm:text-base">📝</span>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="font-serif text-lg sm:text-xl font-semibold text-gray-800 leading-tight">The Art of Slow Travel</h3>
+                                <p class="text-xs sm:text-sm text-gray-500">December 15, 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4">
+                            There's something magical about taking your time in a new place. Instead of rushing from 
+                            one tourist spot to another, I've learned to sit in local cafes, watch people go about 
+                            their daily lives, and let the city reveal itself naturally...
+                        </p>
+                        <button class="text-teal-600 hover:text-teal-700 font-medium text-sm sm:text-base">Read more →</button>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-sm overflow-hidden fade-in">
+                    <div class="p-4 sm:p-6 lg:p-8">
+                        <div class="flex items-center mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                <span class="text-amber-600 font-semibold text-sm sm:text-base">📸</span>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="font-serif text-lg sm:text-xl font-semibold text-gray-800 leading-tight">Photography as Memory Keeping</h3>
+                                <p class="text-xs sm:text-sm text-gray-500">December 10, 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4">
+                            Every photograph tells a story beyond what's visible in the frame. It captures not just 
+                            the scene, but the feeling of that moment – the warmth of the sun, the sound of the waves, 
+                            the excitement of discovery...
+                        </p>
+                        <button class="text-teal-600 hover:text-teal-700 font-medium text-sm sm:text-base">Read more →</button>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-sm overflow-hidden fade-in">
+                    <div class="p-4 sm:p-6 lg:p-8">
+                        <div class="flex items-center mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-rose-100 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                <span class="text-rose-600 font-semibold text-sm sm:text-base">🌟</span>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="font-serif text-lg sm:text-xl font-semibold text-gray-800 leading-tight">Unexpected Discoveries</h3>
+                                <p class="text-xs sm:text-sm text-gray-500">December 5, 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4">
+                            The best travel moments often happen when you least expect them. A wrong turn that leads 
+                            to a hidden temple, a conversation with a stranger that changes your perspective, 
+                            a local dish that becomes your new favorite...
+                        </p>
+                        <button class="text-teal-600 hover:text-teal-700 font-medium text-sm sm:text-base">Read more →</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 text-gray-800">Let's Connect</h2>
+                <p class="text-base sm:text-lg text-gray-600">I'd love to hear from you!</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <div class="fade-in order-2 md:order-1">
+                    <form onsubmit="handleSubmit(event)" class="space-y-4 sm:space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm sm:text-base">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm sm:text-base">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm sm:text-base resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 sm:py-3 rounded-lg font-medium transition-colors text-sm sm:text-base">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div class="fade-in order-1 md:order-2">
+                    <div class="space-y-6 sm:space-y-8">
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-800">Get in Touch</h3>
+                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+                                Whether you want to share your own travel stories, collaborate on a project, 
+                                or just say hello, I'm always excited to connect with fellow travelers and 
+                                storytellers.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 sm:space-y-4">
+                            <a href="mailto:mdarshan@tejomaya.de" class="flex items-center text-gray-600 hover:text-teal-600 transition-colors p-2 -m-2 rounded-lg hover:bg-teal-50">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <span class="text-sm sm:text-base break-all">mdarshan@tejomaya.de</span>
+                            </a>
+                            <a href="https://www.instagram.com/mdarshantejomaya/" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-600 hover:text-teal-600 transition-colors p-2 -m-2 rounded-lg hover:bg-teal-50">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                                <span class="text-sm sm:text-base">Instagram</span>
+                            </a>
+                            <a href="https://www.youtube.com/@mdarshantejomaya" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-600 hover:text-teal-600 transition-colors p-2 -m-2 rounded-lg hover:bg-teal-50">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                                <span class="text-sm sm:text-base">YouTube</span>
+                            </a>
+                            <a href="https://www.snapchat.com/add/darshan_m224" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-600 hover:text-teal-600 transition-colors p-2 -m-2 rounded-lg hover:bg-teal-50">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.404-5.958 1.404-5.958s-.359-.719-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.748-1.378 0 0-.599 2.282-.744 2.840-.282 1.084-1.064 2.456-1.549 3.235C9.584 23.815 10.77 24.001 12.017 24.001c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.12.017 0z"/>
+                                </svg>
+                                <span class="text-sm sm:text-base">Snapchat</span>
+                            </a>
+                            <a href="https://wa.me/917676272709" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-600 hover:text-teal-600 transition-colors p-2 -m-2 rounded-lg hover:bg-teal-50">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                                </svg>
+                                <span class="text-sm sm:text-base">WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 sm:py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+            <div class="mb-4 sm:mb-6">
+                <h3 class="font-serif text-xl sm:text-2xl font-semibold mb-2">Darshan Tejomaya M</h3>
+                <p class="text-gray-400 italic text-sm sm:text-base">"Every journey leaves a story worth sharing."</p>
+            </div>
+            <div class="border-t border-gray-700 pt-4 sm:pt-6">
+                <p class="text-gray-400 text-sm sm:text-base">© 2025 Darshan Tejomaya M. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+        <div class="max-w-4xl w-full bg-white rounded-lg overflow-hidden max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <button onclick="closeLightbox()" class="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 z-10 p-1 bg-white rounded-full shadow-sm">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div id="lightboxContent" class="p-4 sm:p-6 lg:p-8">
+                    <!-- Content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            const closeIcon = document.getElementById('closeIcon');
+            
+            menu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            event.target.reset();
+        }
+
+        // Lightbox functionality
+        function openLightbox(title, description) {
+            const lightbox = document.getElementById('lightbox');
+            const content = document.getElementById('lightboxContent');
+            
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="w-full h-80 bg-gradient-to-br from-teal-100 to-amber-100 rounded-lg flex items-center justify-center mb-6">
+                        <div class="text-center text-teal-600">
+                            <svg class="w-24 h-24 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p class="text-lg font-medium">${title}</p>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold mb-4 text-gray-800">${title}</h3>
+                    <p class="text-gray-600 leading-relaxed">${description}</p>
+                </div>
+            `;
+            
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should fade in
+        document.addEventListener('DOMContentLoaded', function() {
+            const elementsToObserve = document.querySelectorAll('.fade-in');
+            elementsToObserve.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985c2d6c45a2999b',t:'MTc1ODk4ODQ0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
