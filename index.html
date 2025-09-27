@@ -19,12 +19,12 @@
             background: white;
             padding: 12px 12px 40px 12px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
-            transform: rotate(-2deg);
+            transform: rotate(-3deg);
             transition: all 0.3s ease;
         }
         
-        .polaroid:nth-child(even) {
-            transform: rotate(2deg);
+        .polaroid-right {
+            transform: rotate(3deg);
         }
         
         .polaroid:hover {
@@ -46,8 +46,8 @@
         }
         
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2387CEEB;stop-opacity:1" /><stop offset="100%" style="stop-color:%23E0F6FF;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="600" fill="url(%23sky)"/><path d="M0,400 Q300,350 600,380 T1200,360 L1200,600 L0,600 Z" fill="%2334D399"/><path d="M0,450 Q400,420 800,440 T1200,430 L1200,600 L0,600 Z" fill="%2310B981"/><circle cx="200" cy="150" r="50" fill="%23FCD34D" opacity="0.8"/></svg>');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://ik.imagekit.io/uf62a77pv/banner.png?updatedAt=');
             background-size: cover;
             background-position: center;
         }
@@ -177,12 +177,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div class="fade-in order-2 md:order-1">
-                    <div class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mx-auto bg-gradient-to-br from-teal-100 to-amber-100 rounded-full flex items-center justify-center">
-                        <div class="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-gradient-to-br from-teal-200 to-amber-200 rounded-full flex items-center justify-center">
-                            <svg class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                    <div class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mx-auto rounded-full overflow-hidden shadow-lg">
+                        <img src="https://ik.imagekit.io/uf62a77pv/about%20me.png?updatedAt=" alt="Darshan Tejomaya M" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                     </div>
                 </div>
                 <div class="fade-in order-1 md:order-2">
@@ -244,18 +240,7 @@
             <div class="space-y-12 sm:space-y-16 lg:space-y-20">
                 <!-- Goa -->
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <div class="polaroid mx-auto">
-                        <div class="w-72 h-52 sm:w-80 sm:h-60 bg-gradient-to-br from-blue-200 via-blue-300 to-yellow-200 rounded-sm flex items-center justify-center">
-                            <div class="text-center text-blue-800">
-                                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                </svg>
-                                <p class="font-semibold text-sm sm:text-base">Goa Beaches</p>
-                            </div>
-                        </div>
-                        <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">Sun, sand, and serenity</p>
-                    </div>
-                    <div class="fade-in text-center md:text-left">
+                    <div class="fade-in text-center md:text-left order-1">
                         <h3 class="font-serif text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-800">Goa</h3>
                         <p class="text-base sm:text-lg leading-relaxed text-gray-600">
                             Sun, sand, and serenity – Goa taught me the value of slowing down. Between the golden beaches 
@@ -263,11 +248,17 @@
                             rushing to the next destination.
                         </p>
                     </div>
+                    <div class="polaroid mx-auto order-2">
+                        <div class="w-72 h-52 sm:w-80 sm:h-60 rounded-sm overflow-hidden">
+                            <img src="https://ik.imagekit.io/uf62a77pv/goa%20beach.jpg?updatedAt=" alt="Goa Beaches" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">Sun, sand, and serenity</p>
+                    </div>
                 </div>
 
                 <!-- Hyderabad -->
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <div class="fade-in md:order-2 text-center md:text-left">
+                    <div class="fade-in text-center md:text-left order-1 md:order-2">
                         <h3 class="font-serif text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-800">Hyderabad</h3>
                         <p class="text-base sm:text-lg leading-relaxed text-gray-600">
                             A city of food, history, and stories waiting at every corner. From the majestic Charminar 
@@ -275,14 +266,9 @@
                             left me craving for more.
                         </p>
                     </div>
-                    <div class="polaroid mx-auto md:order-1">
-                        <div class="w-72 h-52 sm:w-80 sm:h-60 bg-gradient-to-br from-orange-200 via-red-200 to-pink-200 rounded-sm flex items-center justify-center">
-                            <div class="text-center text-red-800">
-                                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <p class="font-semibold text-sm sm:text-base">Charminar</p>
-                            </div>
+                    <div class="polaroid polaroid-right mx-auto order-2 md:order-1">
+                        <div class="w-72 h-52 sm:w-80 sm:h-60 rounded-sm overflow-hidden">
+                            <img src="https://ik.imagekit.io/uf62a77pv/charminar.png?updatedAt=" alt="Charminar" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                         </div>
                         <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">History & flavors</p>
                     </div>
@@ -290,18 +276,7 @@
 
                 <!-- Mysore -->
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <div class="polaroid mx-auto">
-                        <div class="w-72 h-52 sm:w-80 sm:h-60 bg-gradient-to-br from-purple-200 via-pink-200 to-yellow-200 rounded-sm flex items-center justify-center">
-                            <div class="text-center text-purple-800">
-                                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                                </svg>
-                                <p class="font-semibold text-sm sm:text-base">Mysore Palace</p>
-                            </div>
-                        </div>
-                        <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">Royal grandeur</p>
-                    </div>
-                    <div class="fade-in text-center md:text-left">
+                    <div class="fade-in text-center md:text-left order-1">
                         <h3 class="font-serif text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-800">Mysore</h3>
                         <p class="text-base sm:text-lg leading-relaxed text-gray-600">
                             The city of palaces whispered tales of royal grandeur at every turn. Walking through 
@@ -309,11 +284,17 @@
                             and architecture dance together in perfect harmony.
                         </p>
                     </div>
+                    <div class="polaroid mx-auto order-2">
+                        <div class="w-72 h-52 sm:w-80 sm:h-60 rounded-sm overflow-hidden">
+                            <img src="https://ik.imagekit.io/uf62a77pv/mysore%20welcome.png?updatedAt=" alt="Mysore Palace" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">Royal grandeur</p>
+                    </div>
                 </div>
 
                 <!-- Bangalore -->
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <div class="fade-in md:order-2 text-center md:text-left">
+                    <div class="fade-in text-center md:text-left order-1 md:order-2">
                         <h3 class="font-serif text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4 text-gray-800">Bangalore</h3>
                         <p class="text-base sm:text-lg leading-relaxed text-gray-600">
                             The garden city that never sleeps, where tradition meets innovation. From bustling 
@@ -321,14 +302,9 @@
                             and its dreams with equal passion.
                         </p>
                     </div>
-                    <div class="polaroid mx-auto md:order-1">
-                        <div class="w-72 h-52 sm:w-80 sm:h-60 bg-gradient-to-br from-green-200 via-teal-200 to-blue-200 rounded-sm flex items-center justify-center">
-                            <div class="text-center text-green-800">
-                                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                </svg>
-                                <p class="font-semibold text-sm sm:text-base">Garden City</p>
-                            </div>
+                    <div class="polaroid polaroid-right mx-auto order-2 md:order-1">
+                        <div class="w-72 h-52 sm:w-80 sm:h-60 rounded-sm overflow-hidden">
+                            <img src="https://ik.imagekit.io/uf62a77pv/blr%20palace.jpg?updatedAt=" alt="Garden City" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                         </div>
                         <p class="text-center mt-3 font-handwriting text-gray-700 italic text-sm sm:text-base">Innovation & nature</p>
                     </div>
@@ -688,5 +664,6 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985c2d6c45a2999b',t:'MTc1ODk4ODQ0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985c676a51eb9dfa',t:'MTc1ODk5MDgxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
