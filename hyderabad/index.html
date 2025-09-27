@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyderabad - A City of Pearls and Stories | Darshan Tejomaya M</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23D4A574" width="1200" height="800"/><path fill="%23B8956A" d="M600 200L700 350H500z"/><rect fill="%238B4513" x="580" y="350" width="40" height="200"/><circle fill="%23F4E4BC" cx="600" cy="150" r="30"/><rect fill="%23654321" x="200" y="400" width="800" height="100"/><rect fill="%238B4513" x="300" y="300" width="60" height="200"/><rect fill="%238B4513" x="840" y="300" width="60" height="200"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .scrapbook-border {
+            border: 3px solid #D4A574;
+            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.2);
+        }
+        
+        .handwritten {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+        }
+        
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 1rem;
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .doodle {
+            opacity: 0.6;
+            color: #B8956A;
+        }
+        
+        .pearl-button {
+            background: radial-gradient(circle at 30% 30%, #F4E4BC, #D4A574);
+            border: 2px solid #B8956A;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+        
+        .story-card {
+            background: linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 100%);
+            border-left: 4px solid #8B4513;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800" style="font-family: 'Crimson Text', serif;">
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-center text-white relative">
+        <div class="absolute top-6 left-6">
+            <div class="doodle text-2xl">☪</div>
+        </div>
+        <div class="absolute top-12 right-12">
+            <div class="doodle text-xl">🕌</div>
+        </div>
+        <div class="max-w-4xl px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">
+                Hyderabad
+            </h1>
+            <p class="text-xl md:text-2xl mb-4 handwritten">A City of Pearls and Stories</p>
+            <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
+                Where history and modern life coexist, and every street tells a tale.
+            </p>
+        </div>
+        <div class="absolute bottom-8 left-8">
+            <div class="doodle text-lg">✨ ☕ ✨</div>
+        </div>
+    </section>
+
+    <!-- Decorative Divider -->
+    <div class="flex justify-center py-8">
+        <svg width="200" height="20" viewBox="0 0 200 20" class="text-stone-400">
+            <path d="M10 10 Q50 5 100 10 T190 10" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="100" cy="10" r="3" fill="currentColor"/>
+        </svg>
+    </div>
+
+    <!-- Travel Story Section -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+        <h2 class="text-4xl font-bold text-center mb-16 text-stone-700" style="font-family: 'Playfair Display', serif;">
+            My Journey Through Time
+        </h2>
+
+        <!-- Story 1: Charminar -->
+        <div class="flex flex-col lg:flex-row items-center mb-20 gap-8">
+            <div class="lg:w-1/2">
+                <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg">
+                    <svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-amber-100 to-amber-200">
+                        <!-- Charminar illustration -->
+                        <rect fill="#D4A574" width="400" height="300"/>
+                        <rect fill="#8B4513" x="150" y="100" width="100" height="150"/>
+                        <rect fill="#654321" x="160" y="110" width="80" height="20"/>
+                        <rect fill="#654321" x="160" y="140" width="80" height="20"/>
+                        <rect fill="#654321" x="160" y="170" width="80" height="20"/>
+                        <path fill="#B8956A" d="M150 100 L200 50 L250 100 Z"/>
+                        <circle fill="#F4E4BC" cx="175" cy="80" r="8"/>
+                        <circle fill="#F4E4BC" cx="225" cy="80" r="8"/>
+                        <rect fill="#8B4513" x="120" y="120" width="20" height="130"/>
+                        <rect fill="#8B4513" x="260" y="120" width="20" height="130"/>
+                        <path fill="#B8956A" d="M120 120 L130 100 L140 120 Z"/>
+                        <path fill="#B8956A" d="M260 120 L270 100 L280 120 Z"/>
+                        <text x="200" y="280" text-anchor="middle" fill="#654321" font-size="12">Charminar</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <div class="story-card p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-stone-700" style="font-family: 'Playfair Display', serif;">
+                        The Heart of Old City
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Standing before the Charminar at sunset, I felt the weight of 400 years of history. 
+                        The bustling bazaars around it pulse with the same energy that has flowed through 
+                        these streets since 1591.
+                    </p>
+                    <p class="handwritten text-stone-600 border-l-2 border-stone-400 pl-4">
+                        "An icon of Hyderabad — timeless, bustling, alive with history."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story 2: Golconda Fort -->
+        <div class="flex flex-col lg:flex-row-reverse items-center mb-20 gap-8">
+            <div class="lg:w-1/2">
+                <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg">
+                    <svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-stone-200 to-stone-300">
+                        <!-- Golconda Fort illustration -->
+                        <rect fill="#A0826D" width="400" height="300"/>
+                        <path fill="#8B4513" d="M50 250 L100 200 L150 220 L200 180 L250 200 L300 190 L350 210 L400 200 L400 300 L0 300 Z"/>
+                        <rect fill="#654321" x="180" y="150" width="40" height="100"/>
+                        <rect fill="#654321" x="120" y="180" width="30" height="70"/>
+                        <rect fill="#654321" x="250" y="170" width="35" height="80"/>
+                        <path fill="#B8956A" d="M180 150 L200 130 L220 150 Z"/>
+                        <circle fill="#F4E4BC" cx="320" cy="80" r="25"/>
+                        <text x="200" y="280" text-anchor="middle" fill="#654321" font-size="12">Golconda Fort</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <div class="story-card p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-stone-700" style="font-family: 'Playfair Display', serif;">
+                        Fortress of Legends
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Climbing the ancient steps of Golconda, each stone seemed to echo with tales 
+                        of diamond mines, royal treasures, and strategic battles that shaped the Deccan.
+                    </p>
+                    <p class="handwritten text-stone-600 border-l-2 border-stone-400 pl-4">
+                        "Every stone whispers stories of battles, kings, and legends."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story 3: Food Culture -->
+        <div class="flex flex-col lg:flex-row items-center mb-20 gap-8">
+            <div class="lg:w-1/2">
+                <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg">
+                    <svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-orange-100 to-red-100">
+                        <!-- Food illustration -->
+                        <rect fill="#F4E4BC" width="400" height="300"/>
+                        <ellipse cx="200" cy="150" rx="80" ry="40" fill="#D2691E"/>
+                        <ellipse cx="200" cy="145" rx="75" ry="35" fill="#F4A460"/>
+                        <rect x="150" y="120" width="100" height="8" fill="#8B4513" rx="4"/>
+                        <circle cx="170" cy="130" r="3" fill="#654321"/>
+                        <circle cx="190" cy="135" r="3" fill="#654321"/>
+                        <circle cx="210" cy="132" r="3" fill="#654321"/>
+                        <circle cx="230" cy="138" r="3" fill="#654321"/>
+                        <ellipse cx="320" cy="100" rx="25" ry="15" fill="#8B4513"/>
+                        <rect x="315" y="85" width="10" height="20" fill="#654321"/>
+                        <path d="M325 85 Q330 80 335 85" stroke="#654321" stroke-width="2" fill="none"/>
+                        <text x="200" y="280" text-anchor="middle" fill="#654321" font-size="12">Hyderabadi Biryani & Chai</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <div class="story-card p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-stone-700" style="font-family: 'Playfair Display', serif;">
+                        A Culinary Heritage
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        From the aromatic biryani at Paradise to the perfect Irani chai at Nimrah, 
+                        Hyderabad's food culture is a beautiful fusion of Mughal richness and local flavors.
+                    </p>
+                    <p class="handwritten text-stone-600 border-l-2 border-stone-400 pl-4">
+                        "From biryani to Irani chai, Hyderabad is a feast for the soul."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story 4: Modern Hyderabad -->
+        <div class="flex flex-col lg:flex-row-reverse items-center mb-20 gap-8">
+            <div class="lg:w-1/2">
+                <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg">
+                    <svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-blue-100 to-purple-100">
+                        <!-- Modern skyline illustration -->
+                        <rect fill="#E6F3FF" width="400" height="300"/>
+                        <rect fill="#4A90E2" x="50" y="150" width="30" height="100"/>
+                        <rect fill="#5BA0F2" x="100" y="120" width="25" height="130"/>
+                        <rect fill="#6BB0FF" x="140" y="100" width="35" height="150"/>
+                        <rect fill="#4A90E2" x="190" y="130" width="28" height="120"/>
+                        <rect fill="#5BA0F2" x="230" y="110" width="32" height="140"/>
+                        <rect fill="#6BB0FF" x="280" y="140" width="26" height="110"/>
+                        <rect fill="#4A90E2" x="320" y="125" width="30" height="125"/>
+                        <circle fill="#FFD700" cx="350" cy="60" r="20"/>
+                        <text x="200" y="280" text-anchor="middle" fill="#4A90E2" font-size="12">HITEC City</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <div class="story-card p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-stone-700" style="font-family: 'Playfair Display', serif;">
+                        Where Past Meets Future
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        HITEC City's gleaming towers stand as testament to Hyderabad's evolution. 
+                        Yet somehow, the city maintains its soul while embracing tomorrow.
+                    </p>
+                    <p class="handwritten text-stone-600 border-l-2 border-stone-400 pl-4">
+                        "Where tradition embraces technology and the future."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="bg-stone-100 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-stone-700" style="font-family: 'Playfair Display', serif;">
+                Captured Moments
+            </h2>
+            
+            <div class="masonry-grid">
+                <div class="masonry-item cursor-pointer" onclick="openLightbox('charminar')">
+                    <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white">
+                        <svg width="100%" height="200" viewBox="0 0 300 200" class="bg-gradient-to-br from-amber-200 to-orange-200">
+                            <rect fill="#D4A574" width="300" height="200"/>
+                            <rect fill="#8B4513" x="125" y="50" width="50" height="100"/>
+                            <path fill="#B8956A" d="M125 50 L150 25 L175 50 Z"/>
+                            <circle fill="#F4E4BC" cx="140" cy="40" r="4"/>
+                            <circle fill="#F4E4BC" cx="160" cy="40" r="4"/>
+                        </svg>
+                        <div class="p-4">
+                            <p class="handwritten text-stone-600">Evenings at Charminar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item cursor-pointer" onclick="openLightbox('palace')">
+                    <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white">
+                        <svg width="100%" height="250" viewBox="0 0 300 250" class="bg-gradient-to-br from-yellow-100 to-amber-100">
+                            <rect fill="#F4E4BC" width="300" height="250"/>
+                            <rect fill="#8B4513" x="50" y="100" width="200" height="100"/>
+                            <rect fill="#654321" x="70" y="120" width="160" height="15"/>
+                            <rect fill="#654321" x="70" y="145" width="160" height="15"/>
+                            <path fill="#B8956A" d="M50 100 L150 50 L250 100 Z"/>
+                        </svg>
+                        <div class="p-4">
+                            <p class="handwritten text-stone-600">Chowmahalla Palace grandeur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item cursor-pointer" onclick="openLightbox('lake')">
+                    <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white">
+                        <svg width="100%" height="180" viewBox="0 0 300 180" class="bg-gradient-to-br from-blue-100 to-blue-200">
+                            <rect fill="#87CEEB" width="300" height="180"/>
+                            <ellipse cx="150" cy="120" rx="100" ry="40" fill="#4682B4"/>
+                            <circle cx="150" cy="90" r="15" fill="#2F4F4F"/>
+                            <circle fill="#FFD700" cx="250" cy="30" r="15"/>
+                        </svg>
+                        <div class="p-4">
+                            <p class="handwritten text-stone-600">Hussain Sagar serenity</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item cursor-pointer" onclick="openLightbox('biryani')">
+                    <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white">
+                        <svg width="100%" height="220" viewBox="0 0 300 220" class="bg-gradient-to-br from-orange-100 to-red-100">
+                            <rect fill="#F4E4BC" width="300" height="220"/>
+                            <ellipse cx="150" cy="110" rx="60" ry="30" fill="#D2691E"/>
+                            <ellipse cx="150" cy="105" rx="55" ry="25" fill="#F4A460"/>
+                            <circle cx="130" cy="95" r="2" fill="#654321"/>
+                            <circle cx="150" cy="100" r="2" fill="#654321"/>
+                            <circle cx="170" cy="98" r="2" fill="#654321"/>
+                        </svg>
+                        <div class="p-4">
+                            <p class="handwritten text-stone-600">Hyderabadi biryani joy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item cursor-pointer" onclick="openLightbox('bazaar')">
+                    <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white">
+                        <svg width="100%" height="200" viewBox="0 0 300 200" class="bg-gradient-to-br from-purple-100 to-pink-100">
+                            <rect fill="#E6E6FA" width="300" height="200"/>
+                            <rect fill="#8B4513" x="50" y="80" width="200" height="80"/>
+                            <rect fill="#FFD700" x="60" y="90" width="20" height="20"/>
+                            <rect fill="#FF69B4" x="90" y="90" width="20" height="20"/>
+                            <rect fill="#32CD32" x="120" y="90" width="20" height="20"/>
+                            <rect fill="#FF4500" x="150" y="90" width="20" height="20"/>
+                            <circle cx="200" cy="100" r="8" fill="#FFD700"/>
+                            <circle cx="220" cy="100" r="8" fill="#FFD700"/>
+                        </svg>
+                        <div class="p-4">
+                            <p class="handwritten text-stone-600">Charminar Bazaar lights</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item cursor-pointer" onclick="openLightbox('skyline')">
+                    <div class="scrapbook-border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white">
+                        <svg width="100%" height="160" viewBox="0 0 300 160" class="bg-gradient-to-br from-blue-100 to-purple-100">
+                            <rect fill="#E6F3FF" width="300" height="160"/>
+                            <rect fill="#4A90E2" x="50" y="80" width="20" height="60"/>
+                            <rect fill="#5BA0F2" x="80" y="70" width="18" height="70"/>
+                            <rect fill="#6BB0FF" x="110" y="60" width="25" height="80"/>
+                            <rect fill="#4A90E2" x="145" y="75" width="20" height="65"/>
+                            <rect fill="#5BA0F2" x="175" y="65" width="22" height="75"/>
+                            <rect fill="#6BB0FF" x="210" y="80" width="18" height="60"/>
+                            <rect fill="#4A90E2" x="240" y="70" width="20" height="70"/>
+                        </svg>
+                        <div class="p-4">
+                            <p class="handwritten text-stone-600">Modern skyline dreams</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflection Section -->
+    <section class="py-20 bg-gradient-to-br from-stone-100 to-amber-50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-12 scrapbook-border">
+                <div class="doodle text-3xl mb-6">✨</div>
+                <blockquote class="text-2xl md:text-3xl leading-relaxed text-stone-700 mb-8 handwritten">
+                    "Hyderabad is a blend — of flavors, faiths, and futures. It's not just a place, it's an experience that stays with you."
+                </blockquote>
+                <div class="flex justify-center space-x-4 text-2xl doodle">
+                    <span>🕌</span>
+                    <span>🍛</span>
+                    <span>🏙️</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-stone-800 text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-xl mb-8 handwritten">
+                Hyderabad is just one chapter of my journey. Discover more travels →
+            </p>
+            <button class="pearl-button text-stone-800 px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-transform">
+                Back to Travels Page
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-300 py-8 text-center">
+        <p class="handwritten text-lg">
+            Captured in Hyderabad – A story of history, food, and culture.
+        </p>
+        <div class="mt-4 doodle text-xl">
+            ☪ ✨ 🕌
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="bg-white rounded-lg max-w-2xl mx-4 p-6" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="lightbox-title" class="text-2xl font-bold text-stone-700" style="font-family: 'Playfair Display', serif;"></h3>
+                <button onclick="closeLightbox()" class="text-stone-500 hover:text-stone-700 text-2xl">&times;</button>
+            </div>
+            <div id="lightbox-content" class="mb-4"></div>
+            <p id="lightbox-description" class="text-stone-600 handwritten"></p>
+        </div>
+    </div>
+
+    <script>
+        const lightboxData = {
+            charminar: {
+                title: "Charminar at Sunset",
+                content: `<svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-amber-200 to-orange-300">
+                    <rect fill="#D4A574" width="400" height="300"/>
+                    <rect fill="#8B4513" x="150" y="80" width="100" height="170"/>
+                    <rect fill="#654321" x="160" y="90" width="80" height="20"/>
+                    <rect fill="#654321" x="160" y="120" width="80" height="20"/>
+                    <rect fill="#654321" x="160" y="150" width="80" height="20"/>
+                    <path fill="#B8956A" d="M150 80 L200 30 L250 80 Z"/>
+                    <circle fill="#F4E4BC" cx="175" cy="60" r="8"/>
+                    <circle fill="#F4E4BC" cx="225" cy="60" r="8"/>
+                    <rect fill="#8B4513" x="120" y="100" width="20" height="150"/>
+                    <rect fill="#8B4513" x="260" y="100" width="20" height="150"/>
+                    <path fill="#B8956A" d="M120 100 L130 80 L140 100 Z"/>
+                    <path fill="#B8956A" d="M260 100 L270 80 L280 100 Z"/>
+                    <circle fill="#FFD700" cx="350" cy="50" r="25" opacity="0.8"/>
+                </svg>`,
+                description: "The iconic Charminar stands majestically as the sun sets, casting golden hues across the bustling Old City. Built in 1591, it remains the heart of Hyderabad's cultural identity."
+            },
+            palace: {
+                title: "Chowmahalla Palace",
+                content: `<svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-yellow-100 to-amber-200">
+                    <rect fill="#F4E4BC" width="400" height="300"/>
+                    <rect fill="#8B4513" x="50" y="120" width="300" height="120"/>
+                    <rect fill="#654321" x="70" y="140" width="260" height="20"/>
+                    <rect fill="#654321" x="70" y="170" width="260" height="20"/>
+                    <rect fill="#654321" x="70" y="200" width="260" height="20"/>
+                    <path fill="#B8956A" d="M50 120 L200 60 L350 120 Z"/>
+                    <rect fill="#8B4513" x="180" y="180" width="40" height="60"/>
+                    <circle fill="#FFD700" cx="120" cy="100" r="8"/>
+                    <circle fill="#FFD700" cx="280" cy="100" r="8"/>
+                </svg>`,
+                description: "The grandeur of Chowmahalla Palace reflects the opulent lifestyle of the Nizams. Every courtyard and hall whispers tales of royal ceremonies and cultural celebrations."
+            },
+            lake: {
+                title: "Hussain Sagar Lake",
+                content: `<svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-blue-100 to-blue-300">
+                    <rect fill="#87CEEB" width="400" height="300"/>
+                    <ellipse cx="200" cy="180" rx="150" ry="60" fill="#4682B4"/>
+                    <circle cx="200" cy="150" r="25" fill="#2F4F4F"/>
+                    <path fill="#F5F5DC" d="M175 140 L200 120 L225 140 L200 160 Z"/>
+                    <circle fill="#FFD700" cx="320" cy="60" r="20"/>
+                    <path d="M300 70 Q310 65 320 70" stroke="#FFD700" stroke-width="2" fill="none"/>
+                    <path d="M310 75 Q320 70 330 75" stroke="#FFD700" stroke-width="2" fill="none"/>
+                </svg>`,
+                description: "The serene waters of Hussain Sagar Lake, with the majestic Buddha statue at its center, offer a peaceful retreat from the city's hustle. A perfect spot for evening reflections."
+            },
+            biryani: {
+                title: "Hyderabadi Biryani",
+                content: `<svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-orange-100 to-red-200">
+                    <rect fill="#F4E4BC" width="400" height="300"/>
+                    <ellipse cx="200" cy="150" rx="80" ry="40" fill="#D2691E"/>
+                    <ellipse cx="200" cy="145" rx="75" ry="35" fill="#F4A460"/>
+                    <rect x="150" y="120" width="100" height="8" fill="#8B4513" rx="4"/>
+                    <circle cx="170" cy="130" r="3" fill="#654321"/>
+                    <circle cx="190" cy="135" r="3" fill="#654321"/>
+                    <circle cx="210" cy="132" r="3" fill="#654321"/>
+                    <circle cx="230" cy="138" r="3" fill="#654321"/>
+                    <ellipse cx="320" cy="100" rx="25" ry="15" fill="#8B4513"/>
+                    <rect x="315" y="85" width="10" height="20" fill="#654321"/>
+                    <path d="M325 85 Q330 80 335 85" stroke="#654321" stroke-width="2" fill="none"/>
+                    <text x="200" y="220" text-anchor="middle" fill="#8B4513" font-size="14">Paradise Restaurant</text>
+                </svg>`,
+                description: "The aromatic layers of Hyderabadi biryani at Paradise Restaurant - each grain of rice perfectly spiced, each piece of meat tender and flavorful. A culinary masterpiece that defines the city."
+            },
+            bazaar: {
+                title: "Charminar Bazaar",
+                content: `<svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-purple-100 to-pink-200">
+                    <rect fill="#E6E6FA" width="400" height="300"/>
+                    <rect fill="#8B4513" x="50" y="100" width="300" height="120"/>
+                    <rect fill="#FFD700" x="70" y="120" width="30" height="30"/>
+                    <rect fill="#FF69B4" x="110" y="120" width="30" height="30"/>
+                    <rect fill="#32CD32" x="150" y="120" width="30" height="30"/>
+                    <rect fill="#FF4500" x="190" y="120" width="30" height="30"/>
+                    <rect fill="#9370DB" x="230" y="120" width="30" height="30"/>
+                    <rect fill="#FF1493" x="270" y="120" width="30" height="30"/>
+                    <circle cx="320" cy="135" r="12" fill="#FFD700"/>
+                    <circle cx="320" cy="160" r="12" fill="#FFD700"/>
+                    <circle cx="320" cy="185" r="12" fill="#FFD700"/>
+                    <path d="M60 80 Q200 60 340 80" stroke="#FFD700" stroke-width="3" fill="none"/>
+                </svg>`,
+                description: "The vibrant bazaars around Charminar come alive with colors, sounds, and aromas. From pearls to bangles, from perfumes to traditional crafts - it's a shopper's paradise."
+            },
+            skyline: {
+                title: "Modern Hyderabad",
+                content: `<svg width="100%" height="300" viewBox="0 0 400 300" class="bg-gradient-to-br from-blue-100 to-purple-200">
+                    <rect fill="#E6F3FF" width="400" height="300"/>
+                    <rect fill="#4A90E2" x="50" y="120" width="30" height="120"/>
+                    <rect fill="#5BA0F2" x="90" y="100" width="25" height="140"/>
+                    <rect fill="#6BB0FF" x="125" y="80" width="35" height="160"/>
+                    <rect fill="#4A90E2" x="170" y="110" width="28" height="130"/>
+                    <rect fill="#5BA0F2" x="210" y="90" width="32" height="150"/>
+                    <rect fill="#6BB0FF" x="255" y="120" width="26" height="120"/>
+                    <rect fill="#4A90E2" x="295" y="105" width="30" height="135"/>
+                    <rect fill="#5BA0F2" x="335" y="95" width="25" height="145"/>
+                    <circle fill="#FFD700" cx="350" cy="50" r="20"/>
+                    <path d="M330 60 Q340 55 350 60" stroke="#FFD700" stroke-width="2" fill="none"/>
+                </svg>`,
+                description: "HITEC City's gleaming towers represent Hyderabad's transformation into a global IT hub. The city seamlessly blends its rich heritage with modern aspirations."
+            }
+        };
+
+        function openLightbox(imageId) {
+            const data = lightboxData[imageId];
+            if (data) {
+                document.getElementById('lightbox-title').textContent = data.title;
+                document.getElementById('lightbox-content').innerHTML = data.content;
+                document.getElementById('lightbox-description').textContent = data.description;
+                document.getElementById('lightbox').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Smooth scrolling for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985c7f5fa228b277',t:'MTc1ODk5MTgwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
