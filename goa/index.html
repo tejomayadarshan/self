@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goa - Sun, Sand, and Serenity | Darshan Tejomaya M</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .handwritten {
+            font-family: 'Caveat', cursive;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+        
+        .polaroid:nth-child(even) {
+            transform: rotate(2deg);
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+        
+        .tape {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0,0,0,0.1);
+            transform: rotate(-45deg);
+        }
+        
+        .tape-top-left {
+            top: -10px;
+            left: -10px;
+        }
+        
+        .tape-top-right {
+            top: -10px;
+            right: -10px;
+            transform: rotate(45deg);
+        }
+        
+        .scrapbook-bg {
+            background: linear-gradient(135deg, #f7f3e9 0%, #f0ebe0 100%);
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+        }
+        
+        .doodle {
+            position: absolute;
+            opacity: 0.3;
+            color: #14b8a6;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .brush-stroke {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0,5 Q25,0 50,5 T100,5' stroke='%2314b8a6' stroke-width='2' fill='none' opacity='0.6'/%3E%3C/svg%3E") repeat-x;
+            height: 10px;
+            margin: 2rem 0;
+        }
+        
+        .masonry {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masonry {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body class="scrapbook-bg font-sans">
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-400 via-pink-400 to-purple-500 opacity-80"></div>
+        
+        <!-- Beach SVG Background -->
+        <svg class="absolute inset-0 w-full h-full object-cover" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff7e5f"/>
+                    <stop offset="100%" style="stop-color:#feb47b"/>
+                </linearGradient>
+                <linearGradient id="ocean" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4facfe"/>
+                    <stop offset="100%" style="stop-color:#00f2fe"/>
+                </linearGradient>
+            </defs>
+            <rect width="800" height="300" fill="url(#sky)"/>
+            <rect y="300" width="800" height="300" fill="url(#ocean)"/>
+            <ellipse cx="700" cy="100" rx="60" ry="60" fill="#fff3cd" opacity="0.9"/>
+            <path d="M0,350 Q200,320 400,340 T800,350 L800,600 L0,600 Z" fill="#f4e4bc"/>
+            <g opacity="0.6">
+                <path d="M50,380 Q150,370 250,380 T450,380" stroke="#fff" stroke-width="2" fill="none"/>
+                <path d="M100,400 Q200,390 300,400 T500,400" stroke="#fff" stroke-width="1.5" fill="none"/>
+            </g>
+        </svg>
+        
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 handwritten">Goa</h1>
+            <p class="text-2xl md:text-3xl mb-6 font-light">Sun, Sand, and Serenity</p>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto italic opacity-90">
+                "Every corner of Goa has a rhythm — of waves, laughter, and timeless sunsets."
+            </p>
+        </div>
+        
+        <!-- Decorative doodles -->
+        <div class="doodle text-4xl top-20 left-10">🌴</div>
+        <div class="doodle text-3xl top-32 right-20">🐚</div>
+        <div class="doodle text-2xl bottom-40 left-20">☀️</div>
+    </section>
+
+    <!-- Travel Story Section -->
+    <section class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="brush-stroke mb-16"></div>
+        
+        <!-- Beach & Ocean Story -->
+        <div class="flex flex-col lg:flex-row items-center mb-20 gap-12">
+            <div class="lg:w-1/2 relative">
+                <div class="polaroid relative">
+                    <div class="tape tape-top-left"></div>
+                    <div class="tape tape-top-right"></div>
+                    <div class="w-full h-80 bg-gradient-to-br from-blue-400 to-teal-500 rounded-lg overflow-hidden">
+                        <svg viewBox="0 0 400 300" class="w-full h-full">
+                            <rect width="400" height="200" fill="url(#ocean)"/>
+                            <path d="M0,180 Q100,160 200,170 T400,180 L400,300 L0,300 Z" fill="#f4e4bc"/>
+                            <g opacity="0.7">
+                                <path d="M20,200 Q120,190 220,200 T420,200" stroke="#fff" stroke-width="3" fill="none"/>
+                                <path d="M0,220 Q100,210 200,220 T400,220" stroke="#fff" stroke-width="2" fill="none"/>
+                            </g>
+                            <circle cx="350" cy="50" r="30" fill="#fff3cd" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-lg text-gray-700 mt-3 text-center">Endless horizons</p>
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <h3 class="handwritten text-3xl text-teal-700 mb-4">Beach & Ocean</h3>
+                <p class="text-lg text-gray-700 leading-relaxed italic">
+                    "Goa taught me the art of slowing down and enjoying life's simple moments. 
+                    The rhythm of the waves became my meditation, each sunset a gentle reminder 
+                    that beauty exists in the everyday."
+                </p>
+            </div>
+        </div>
+
+        <!-- Churches & Heritage Story -->
+        <div class="flex flex-col lg:flex-row-reverse items-center mb-20 gap-12">
+            <div class="lg:w-1/2 relative">
+                <div class="polaroid relative">
+                    <div class="tape tape-top-left"></div>
+                    <div class="tape tape-top-right"></div>
+                    <div class="w-full h-80 bg-gradient-to-br from-orange-200 to-yellow-100 rounded-lg overflow-hidden flex items-center justify-center">
+                        <svg viewBox="0 0 400 300" class="w-full h-full">
+                            <rect width="400" height="300" fill="#f8f4e6"/>
+                            <rect x="150" y="80" width="100" height="140" fill="#fff" stroke="#d4af37" stroke-width="2"/>
+                            <rect x="170" y="100" width="60" height="80" fill="#4a90e2" opacity="0.3"/>
+                            <polygon points="150,80 200,40 250,80" fill="#d4af37"/>
+                            <rect x="190" y="180" width="20" height="40" fill="#8b4513"/>
+                            <circle cx="200" cy="60" r="8" fill="#d4af37"/>
+                            <path d="M100,220 L300,220" stroke="#d4af37" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-lg text-gray-700 mt-3 text-center">Portuguese whispers</p>
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <h3 class="handwritten text-3xl text-orange-600 mb-4">Churches & Heritage</h3>
+                <p class="text-lg text-gray-700 leading-relaxed italic">
+                    "History speaks softly in the whitewashed walls and Portuguese arches. 
+                    Every stone tells a story of cultures intertwining, creating something 
+                    uniquely beautiful and timelessly peaceful."
+                </p>
+            </div>
+        </div>
+
+        <!-- Local Food & Markets Story -->
+        <div class="flex flex-col lg:flex-row items-center mb-20 gap-12">
+            <div class="lg:w-1/2 relative">
+                <div class="polaroid relative">
+                    <div class="tape tape-top-left"></div>
+                    <div class="tape tape-top-right"></div>
+                    <div class="w-full h-80 bg-gradient-to-br from-red-300 to-orange-300 rounded-lg overflow-hidden flex items-center justify-center">
+                        <div class="grid grid-cols-3 gap-4 p-8">
+                            <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white text-2xl">🌶️</div>
+                            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white text-2xl">🥭</div>
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl">🥥</div>
+                            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl">🍤</div>
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl">🐟</div>
+                            <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-white text-2xl">🌺</div>
+                        </div>
+                    </div>
+                    <p class="handwritten text-lg text-gray-700 mt-3 text-center">Flavors of paradise</p>
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <h3 class="handwritten text-3xl text-red-600 mb-4">Local Food & Markets</h3>
+                <p class="text-lg text-gray-700 leading-relaxed italic">
+                    "Every bite is a memory — spicy, colorful, unforgettable. The markets burst 
+                    with life, aromas dancing in the air, each vendor sharing not just food, 
+                    but stories of generations."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="handwritten text-5xl text-center text-teal-700 mb-16">Captured Moments</h2>
+            
+            <div class="masonry">
+                <div class="masonry-item polaroid cursor-pointer hover:shadow-2xl transition-all duration-300" onclick="openLightbox('beach1')">
+                    <div class="w-full h-64 bg-gradient-to-br from-blue-400 to-teal-500 rounded-lg"></div>
+                    <p class="handwritten text-center mt-2 text-gray-600">Evening by the shore</p>
+                </div>
+                
+                <div class="masonry-item polaroid cursor-pointer hover:shadow-2xl transition-all duration-300" onclick="openLightbox('church1')">
+                    <div class="w-full h-48 bg-gradient-to-br from-orange-200 to-yellow-100 rounded-lg"></div>
+                    <p class="handwritten text-center mt-2 text-gray-600">Old charm of Panjim</p>
+                </div>
+                
+                <div class="masonry-item polaroid cursor-pointer hover:shadow-2xl transition-all duration-300" onclick="openLightbox('sunset1')">
+                    <div class="w-full h-72 bg-gradient-to-br from-orange-400 to-pink-500 rounded-lg"></div>
+                    <p class="handwritten text-center mt-2 text-gray-600">Golden hour magic</p>
+                </div>
+                
+                <div class="masonry-item polaroid cursor-pointer hover:shadow-2xl transition-all duration-300" onclick="openLightbox('market1')">
+                    <div class="w-full h-56 bg-gradient-to-br from-red-300 to-orange-300 rounded-lg"></div>
+                    <p class="handwritten text-center mt-2 text-gray-600">Spice market colors</p>
+                </div>
+                
+                <div class="masonry-item polaroid cursor-pointer hover:shadow-2xl transition-all duration-300" onclick="openLightbox('fort1')">
+                    <div class="w-full h-60 bg-gradient-to-br from-gray-400 to-stone-500 rounded-lg"></div>
+                    <p class="handwritten text-center mt-2 text-gray-600">Fort Aguada views</p>
+                </div>
+                
+                <div class="masonry-item polaroid cursor-pointer hover:shadow-2xl transition-all duration-300" onclick="openLightbox('street1')">
+                    <div class="w-full h-52 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-lg"></div>
+                    <p class="handwritten text-center mt-2 text-gray-600">Colorful streets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="py-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-teal-100 to-blue-100 opacity-50"></div>
+        <svg class="absolute inset-0 w-full h-full object-cover opacity-20" viewBox="0 0 800 400">
+            <path d="M0,200 Q200,150 400,200 T800,200 L800,400 L0,400 Z" fill="#14b8a6"/>
+            <g opacity="0.3">
+                <path d="M50,250 Q150,240 250,250 T450,250" stroke="#fff" stroke-width="2" fill="none"/>
+                <path d="M100,270 Q200,260 300,270 T500,270" stroke="#fff" stroke-width="1.5" fill="none"/>
+            </g>
+        </svg>
+        
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <div class="bg-white bg-opacity-90 p-12 rounded-2xl shadow-xl">
+                <p class="text-2xl md:text-3xl text-gray-700 italic leading-relaxed handwritten">
+                    "Goa is more than a destination — it's a reminder that sometimes, 
+                    doing nothing is the best way to live."
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <div class="w-16 h-1 bg-teal-500 rounded"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="doodle text-6xl top-10 left-10">🌊</div>
+        <div class="doodle text-4xl bottom-10 right-10">🏖️</div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 px-4 text-center">
+        <div class="max-w-2xl mx-auto">
+            <p class="text-xl text-gray-600 mb-8 handwritten">Explore more of my journeys</p>
+            <a href="#" class="inline-block bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">
+                ← Back to Travels Page
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-stone-100 text-center">
+        <p class="text-gray-600 handwritten text-lg">
+            Captured in Goa – A chapter of my travel scrapbook.
+        </p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="relative max-w-4xl max-h-full p-4" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-10">×</button>
+            <div id="lightbox-content" class="bg-white p-6 rounded-lg shadow-2xl">
+                <div id="lightbox-image" class="w-full h-96 rounded-lg mb-4"></div>
+                <p id="lightbox-caption" class="handwritten text-xl text-center text-gray-700"></p>
+                <p id="lightbox-description" class="text-gray-600 text-center mt-2"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const lightboxData = {
+            beach1: {
+                caption: "Evening by the shore",
+                description: "The gentle waves whispered stories of countless sunsets, each one painting the sky in hues of gold and crimson.",
+                bg: "bg-gradient-to-br from-blue-400 to-teal-500"
+            },
+            church1: {
+                caption: "Old charm of Panjim",
+                description: "Portuguese architecture stands as a testament to Goa's rich cultural heritage, where East meets West in perfect harmony.",
+                bg: "bg-gradient-to-br from-orange-200 to-yellow-100"
+            },
+            sunset1: {
+                caption: "Golden hour magic",
+                description: "Every sunset in Goa feels like nature's daily masterpiece, a moment of pure tranquility and wonder.",
+                bg: "bg-gradient-to-br from-orange-400 to-pink-500"
+            },
+            market1: {
+                caption: "Spice market colors",
+                description: "The vibrant markets burst with life, where every spice tells a story and every vendor shares a smile.",
+                bg: "bg-gradient-to-br from-red-300 to-orange-300"
+            },
+            fort1: {
+                caption: "Fort Aguada views",
+                description: "Standing atop the ancient fort, history and horizon merge into one breathtaking panorama.",
+                bg: "bg-gradient-to-br from-gray-400 to-stone-500"
+            },
+            street1: {
+                caption: "Colorful streets",
+                description: "Every street corner in Goa is a canvas painted with joy, culture, and the warmth of its people.",
+                bg: "bg-gradient-to-br from-yellow-300 to-orange-400"
+            }
+        };
+
+        function openLightbox(imageId) {
+            const data = lightboxData[imageId];
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightbox-image');
+            const caption = document.getElementById('lightbox-caption');
+            const description = document.getElementById('lightbox-description');
+            
+            image.className = `w-full h-96 rounded-lg mb-4 ${data.bg}`;
+            caption.textContent = data.caption;
+            description.textContent = data.description;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985c7590020d9dfa',t:'MTc1ODk5MTM5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
