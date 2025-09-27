@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mysore - A City of Heritage and Grace | Darshan Tejomaya M</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .playfair { font-family: 'Playfair Display', serif; }
+        .crimson { font-family: 'Crimson Text', serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(139, 69, 19, 0.3), rgba(0, 0, 0, 0.4)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23654321" width="1200" height="800"/><g fill="%23DAA520" opacity="0.3"><circle cx="200" cy="150" r="80"/><circle cx="1000" cy="200" r="60"/><circle cx="600" cy="400" r="100"/></g><rect fill="%238B4513" x="300" y="600" width="600" height="200" rx="20"/><rect fill="%23DAA520" x="320" y="620" width="560" height="160" rx="15"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .scrapbook-border {
+            border: 3px solid #DAA520;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.2);
+            position: relative;
+        }
+        
+        .scrapbook-border::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #DAA520, #B8860B, #DAA520);
+            border-radius: 18px;
+            z-index: -1;
+        }
+        
+        .handwritten {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            transform: rotate(-1deg);
+        }
+        
+        .palace-motif {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M10 10 L20 5 L30 10 L40 5 L50 10 L60 5 L70 10 L80 5 L90 10" stroke="%23DAA520" stroke-width="2" fill="none"/></svg>');
+            background-repeat: repeat-x;
+            height: 20px;
+            opacity: 0.6;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .vintage-ticket {
+            background: linear-gradient(135deg, #DAA520, #B8860B);
+            border: 2px dashed #8B4513;
+            position: relative;
+        }
+        
+        .vintage-ticket::before,
+        .vintage-ticket::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #FFF8DC;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .vintage-ticket::before {
+            left: -10px;
+        }
+        
+        .vintage-ticket::after {
+            right: -10px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-yellow-50 to-orange-50">
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center text-white relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="playfair text-6xl md:text-8xl font-bold mb-6 text-yellow-200 drop-shadow-lg">
+                Mysore
+            </h1>
+            <p class="playfair text-2xl md:text-3xl mb-4 text-yellow-100">
+                A City of Heritage and Grace
+            </p>
+            <p class="crimson text-lg md:text-xl text-yellow-50 max-w-2xl mx-auto leading-relaxed">
+                Where history, art, and tradition come together in timeless harmony
+            </p>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <svg class="w-8 h-8 text-yellow-200 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Palace Motif Divider -->
+    <div class="palace-motif"></div>
+
+    <!-- Travel Story Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="playfair text-4xl md:text-5xl font-bold text-center mb-16 text-red-900">
+                A Royal Journey Through Time
+            </h2>
+            
+            <!-- Story Block 1 - Mysore Palace -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="scrapbook-border overflow-hidden">
+                    <div class="h-80 bg-gradient-to-br from-yellow-600 to-red-700 relative">
+                        <!-- Palace SVG -->
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
+                            <rect fill="#8B4513" x="50" y="200" width="300" height="100"/>
+                            <rect fill="#DAA520" x="70" y="180" width="260" height="120"/>
+                            <polygon fill="#B8860B" points="200,50 120,180 280,180"/>
+                            <circle fill="#FFD700" cx="200" cy="120" r="15"/>
+                            <rect fill="#654321" x="180" y="220" width="40" height="60"/>
+                            <rect fill="#8B4513" x="100" y="200" width="20" height="40"/>
+                            <rect fill="#8B4513" x="280" y="200" width="20" height="40"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="playfair text-3xl font-bold text-red-800">The Mysore Palace</h3>
+                    <p class="crimson text-lg text-gray-700 leading-relaxed">
+                        The grandeur of royalty shines in every arch, dome, and courtyard. Walking through these halls, 
+                        I felt the whispers of maharajas and the echoes of a glorious past.
+                    </p>
+                    <div class="handwritten text-yellow-700 text-sm">
+                        "Every corner tells a story of royal splendor..."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Block 2 - Chamundi Hills -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="space-y-6 md:order-2">
+                    <h3 class="playfair text-3xl font-bold text-green-800">Chamundi Hills</h3>
+                    <p class="crimson text-lg text-gray-700 leading-relaxed">
+                        Spiritual calm with panoramic views of the city below. The climb to the temple rewards you 
+                        with serenity and a bird's eye view of Mysore's royal landscape.
+                    </p>
+                    <div class="handwritten text-green-700 text-sm">
+                        "1000 steps to heaven and peace..."
+                    </div>
+                </div>
+                <div class="scrapbook-border overflow-hidden md:order-1">
+                    <div class="h-80 bg-gradient-to-br from-green-500 to-blue-600 relative">
+                        <!-- Hills SVG -->
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
+                            <path fill="#228B22" d="M0,250 Q100,150 200,180 Q300,120 400,200 L400,300 L0,300 Z"/>
+                            <path fill="#32CD32" d="M0,280 Q150,200 250,220 Q350,180 400,240 L400,300 L0,300 Z"/>
+                            <rect fill="#8B4513" x="180" y="160" width="40" height="60"/>
+                            <polygon fill="#DAA520" points="200,140 190,160 210,160"/>
+                            <circle fill="#FFD700" cx="80" cy="80" r="25"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Block 3 - Dasara Festival -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="scrapbook-border overflow-hidden">
+                    <div class="h-80 bg-gradient-to-br from-purple-600 to-pink-600 relative">
+                        <!-- Festival SVG -->
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
+                            <rect fill="#8B4513" x="150" y="200" width="100" height="80"/>
+                            <ellipse fill="#DAA520" cx="200" cy="180" rx="60" ry="30"/>
+                            <circle fill="#FF69B4" cx="120" cy="100" r="8"/>
+                            <circle fill="#FFD700" cx="280" cy="120" r="6"/>
+                            <circle fill="#FF1493" cx="160" cy="80" r="5"/>
+                            <circle fill="#FFA500" cx="240" cy="90" r="7"/>
+                            <path fill="#DAA520" d="M180,200 L220,200 L210,220 L190,220 Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="playfair text-3xl font-bold text-purple-800">Mysore Dasara Festival</h3>
+                    <p class="crimson text-lg text-gray-700 leading-relaxed">
+                        Lights, processions, and celebrations that paint the city in gold. The festival transforms 
+                        Mysore into a living canvas of culture, tradition, and joy.
+                    </p>
+                    <div class="handwritten text-purple-700 text-sm">
+                        "Ten days of pure magic and celebration..."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Block 4 - Markets -->
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 md:order-2">
+                    <h3 class="playfair text-3xl font-bold text-orange-800">Mysore Markets</h3>
+                    <p class="crimson text-lg text-gray-700 leading-relaxed">
+                        Colors and fragrances that capture the city's soul. From silk sarees to sandalwood, 
+                        from jasmine flowers to traditional sweets - every sense is delighted.
+                    </p>
+                    <div class="handwritten text-orange-700 text-sm">
+                        "A symphony of colors, scents, and sounds..."
+                    </div>
+                </div>
+                <div class="scrapbook-border overflow-hidden md:order-1">
+                    <div class="h-80 bg-gradient-to-br from-orange-500 to-red-500 relative">
+                        <!-- Market SVG -->
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
+                            <rect fill="#8B4513" x="50" y="220" width="300" height="80"/>
+                            <rect fill="#DAA520" x="80" y="200" width="60" height="40"/>
+                            <rect fill="#FF69B4" x="160" y="200" width="60" height="40"/>
+                            <rect fill="#32CD32" x="240" y="200" width="60" height="40"/>
+                            <circle fill="#FFD700" cx="110" cy="180" r="8"/>
+                            <circle fill="#FF1493" cx="190" cy="180" r="8"/>
+                            <circle fill="#00FF00" cx="270" cy="180" r="8"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Palace Motif Divider -->
+    <div class="palace-motif"></div>
+
+    <!-- Photo Gallery -->
+    <section class="py-20 px-6 bg-gradient-to-br from-yellow-50 to-red-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="playfair text-4xl md:text-5xl font-bold text-center mb-16 text-red-900">
+                Captured Moments
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item scrapbook-border bg-white p-3" onclick="openLightbox('Palace by night', 'The illuminated palace creates a magical golden glow against the dark sky')">
+                    <div class="h-40 bg-gradient-to-br from-yellow-600 to-orange-700 rounded-lg mb-2 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 150">
+                            <rect fill="#1a1a1a" width="200" height="150"/>
+                            <rect fill="#DAA520" x="50" y="80" width="100" height="50"/>
+                            <polygon fill="#FFD700" points="100,40 70,80 130,80"/>
+                            <circle fill="#FFFF00" cx="100" cy="65" r="5"/>
+                            <rect fill="#FFA500" x="90" y="100" width="20" height="30"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-xs text-gray-600">Palace by night</p>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item scrapbook-border bg-white p-3" onclick="openLightbox('Temple steps at dawn', 'Early morning pilgrims climb the sacred steps as the sun rises over Chamundi Hills')">
+                    <div class="h-40 bg-gradient-to-br from-orange-400 to-pink-500 rounded-lg mb-2 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 150">
+                            <rect fill="#87CEEB" width="200" height="75"/>
+                            <rect fill="#228B22" y="75" width="200" height="75"/>
+                            <rect fill="#8B4513" x="20" y="100" width="160" height="8"/>
+                            <rect fill="#8B4513" x="25" y="108" width="150" height="8"/>
+                            <rect fill="#8B4513" x="30" y="116" width="140" height="8"/>
+                            <circle fill="#FFD700" cx="170" cy="30" r="15"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-xs text-gray-600">Temple steps at dawn</p>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item scrapbook-border bg-white p-3" onclick="openLightbox('Colors of Devaraja Market', 'Vibrant flowers, spices, and textiles create a kaleidoscope of Indian culture')">
+                    <div class="h-40 bg-gradient-to-br from-red-500 to-purple-600 rounded-lg mb-2 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 150">
+                            <rect fill="#FF69B4" x="0" y="0" width="50" height="150"/>
+                            <rect fill="#FFD700" x="50" y="0" width="50" height="150"/>
+                            <rect fill="#32CD32" x="100" y="0" width="50" height="150"/>
+                            <rect fill="#FF4500" x="150" y="0" width="50" height="150"/>
+                            <circle fill="#FFFFFF" cx="25" cy="75" r="15"/>
+                            <circle fill="#FFFFFF" cx="75" cy="75" r="15"/>
+                            <circle fill="#FFFFFF" cx="125" cy="75" r="15"/>
+                            <circle fill="#FFFFFF" cx="175" cy="75" r="15"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-xs text-gray-600">Colors of Devaraja Market</p>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item scrapbook-border bg-white p-3" onclick="openLightbox('Brindavan Gardens', 'Musical fountains dance in perfect harmony with colorful lights')">
+                    <div class="h-40 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg mb-2 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 150">
+                            <rect fill="#87CEEB" width="200" height="150"/>
+                            <rect fill="#228B22" y="120" width="200" height="30"/>
+                            <path fill="#4169E1" d="M100,120 Q90,100 100,80 Q110,100 100,120"/>
+                            <path fill="#4169E1" d="M70,120 Q60,105 70,90 Q80,105 70,120"/>
+                            <path fill="#4169E1" d="M130,120 Q120,105 130,90 Q140,105 130,120"/>
+                            <circle fill="#FFD700" cx="50" cy="40" r="20"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-xs text-gray-600">Brindavan Gardens</p>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item scrapbook-border bg-white p-3" onclick="openLightbox('Royal procession', 'Decorated elephants march through the streets during Dasara celebrations')">
+                    <div class="h-40 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg mb-2 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 150">
+                            <rect fill="#8B4513" y="100" width="200" height="50"/>
+                            <ellipse fill="#696969" cx="100" cy="90" rx="40" ry="25"/>
+                            <ellipse fill="#696969" cx="100" cy="110" rx="35" ry="20"/>
+                            <path fill="#696969" d="M80,85 Q75,75 85,75 Q90,80 85,85"/>
+                            <circle fill="#000000" cx="90" cy="80" r="3"/>
+                            <rect fill="#DAA520" x="80" y="70" width="40" height="15"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-xs text-gray-600">Royal procession</p>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item scrapbook-border bg-white p-3" onclick="openLightbox('Silk weaving', 'Master craftsmen create the famous Mysore silk with intricate patterns')">
+                    <div class="h-40 bg-gradient-to-br from-yellow-500 to-red-500 rounded-lg mb-2 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 150">
+                            <rect fill="#8B4513" x="50" y="50" width="100" height="80"/>
+                            <rect fill="#DAA520" x="60" y="60" width="80" height="60"/>
+                            <line stroke="#FF69B4" stroke-width="2" x1="70" y1="70" x2="130" y2="70"/>
+                            <line stroke="#32CD32" stroke-width="2" x1="70" y1="80" x2="130" y2="80"/>
+                            <line stroke="#4169E1" stroke-width="2" x1="70" y1="90" x2="130" y2="90"/>
+                            <line stroke="#FFD700" stroke-width="2" x1="70" y1="100" x2="130" y2="100"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-xs text-gray-600">Silk weaving</p>
+                </div>
+
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item scrapbook-border bg-white p-3" onclick="openLightbox('Sandalwood carving', 'Artisans shape fragrant sandalwood into beautiful sculptures and artifacts')">
+                    <div class="h-40 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg mb-2 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 150">
+                            <rect fill="#DEB887" x="70" y="40" width="60" height="80"/>
+                            <ellipse fill="#CD853F" cx="100" cy="60" rx="20" ry="15"/>
+                            <rect fill="#8B4513" x="95" y="75" width="10" height="30"/>
+                            <ellipse fill="#CD853F" cx="100" cy="110" rx="15" ry="10"/>
+                            <path fill="#DAA520" d="M85,50 Q100,45 115,50 Q100,55 85,50"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-xs text-gray-600">Sandalwood carving</p>
+                </div>
+
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item scrapbook-border bg-white p-3" onclick="openLightbox('Mysore pak sweet', 'The famous Mysore pak melts in your mouth with its rich, buttery texture')">
+                    <div class="h-40 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg mb-2 relative overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 150">
+                            <rect fill="#FFD700" x="50" y="60" width="100" height="60" rx="10"/>
+                            <rect fill="#FFA500" x="60" y="70" width="80" height="40" rx="5"/>
+                            <rect fill="#FFFF00" x="70" y="80" width="60" height="20" rx="3"/>
+                            <circle fill="#DAA520" cx="80" cy="90" r="3"/>
+                            <circle fill="#DAA520" cx="100" cy="90" r="3"/>
+                            <circle fill="#DAA520" cx="120" cy="90" r="3"/>
+                        </svg>
+                    </div>
+                    <p class="handwritten text-xs text-gray-600">Mysore pak sweet</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="bg-white rounded-lg p-8 max-w-2xl mx-4 relative" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            <h3 id="lightbox-title" class="playfair text-2xl font-bold mb-4 text-red-900"></h3>
+            <p id="lightbox-description" class="crimson text-gray-700 leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- Palace Motif Divider -->
+    <div class="palace-motif"></div>
+
+    <!-- Reflection Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="scrapbook-border bg-gradient-to-br from-yellow-100 to-orange-100 p-12 relative">
+                <div class="absolute inset-0 opacity-10">
+                    <svg viewBox="0 0 400 300" class="w-full h-full">
+                        <rect fill="#DAA520" x="100" y="150" width="200" height="100"/>
+                        <polygon fill="#B8860B" points="200,50 120,150 280,150"/>
+                        <circle fill="#FFD700" cx="200" cy="100" r="20"/>
+                    </svg>
+                </div>
+                <blockquote class="relative z-10">
+                    <p class="playfair text-2xl md:text-3xl font-semibold text-red-900 mb-6 italic">
+                        "Mysore is not just a city, it's an experience of grace — in its palaces, prayers, and people."
+                    </p>
+                    <footer class="crimson text-lg text-gray-700">
+                        — Darshan Tejomaya M
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 px-6 text-center">
+        <div class="max-w-2xl mx-auto">
+            <p class="crimson text-xl text-gray-700 mb-8">
+                Mysore is a royal chapter of my journey. Explore more of my travels →
+            </p>
+            <button class="vintage-ticket px-8 py-4 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                <span class="playfair text-lg">Back to Travels Page</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-900 text-yellow-100 py-8 px-6 text-center">
+        <div class="palace-motif mb-4"></div>
+        <p class="crimson text-lg">
+            Captured in Mysore – A royal story of culture and tradition
+        </p>
+        <p class="text-sm mt-2 opacity-75">
+            © 2024 Darshan Tejomaya M | Travel Diary
+        </p>
+    </footer>
+
+    <script>
+        function openLightbox(title, description) {
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-description').textContent = description;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for any internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero-bg');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985c875ea4d6b277',t:'MTc1ODk5MjEyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
